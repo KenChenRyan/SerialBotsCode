@@ -52,8 +52,8 @@ while True:
         right_lift.run(100) 
         left_lift.run(-100)
     else:
-        right_lift.hold()
-        left_lift.hold()
+        right_lift.off()
+        left_lift.off()
         
 #claw
     if(joystick.bLup()):
@@ -61,7 +61,7 @@ while True:
     elif(joystick.bLdown()):
         claw.run(-50)
     else:
-        claw.hold()
+        claw.off()
 #macro for height
 riser_height = 250
 # if(joystick.bEup()):
