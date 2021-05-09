@@ -14,13 +14,6 @@ dt          = drivetrain.Drivetrain(left_drive, right_drive, 200, 225)
 joystick    = vexiq.Joystick()
 #endregion config
 
-
-#region config
-left_drive  = vexiq.Motor(3)
-right_drive = vexiq.Motor(4, True) # Reverse Polarity
-left_lift   = vexiq.Motor(5)
-right_lift  = vexiq.Motor(6)
-
 import drivetrain
 dt          = drivetrain.Drivetrain(left_drive, right_drive, 200, 185)
 
