@@ -1,4 +1,4 @@
-# VEX IQ Python-Project
+# nope
 import sys
 import vexiq
 
@@ -7,20 +7,30 @@ claw        = vexiq.Motor(1)
 left_drive  = vexiq.Motor(3)
 right_drive = vexiq.Motor(4, True) # Reverse Polarity
 left_lift   = vexiq.Motor(5)
-right_lift  = vexiq.Motor(6)
+right_lift  = vexiq.Motor(6, True)
 
 import drivetrain
 dt          = drivetrain.Drivetrain(left_drive, right_drive, 200, 225)
-joystick    = vexiq.Joystick()
 #endregion config
 
-import drivetrain
-dt          = drivetrain.Drivetrain(left_drive, right_drive, 200, 185)
+class liftTrain:
+    def __init__(self,l,r):
+        this.left = l;
+        this.right = r;
+    def lift_up(distance):
+        this.left.run(100,distance)
+        this.right.run(100,distance)
+        sys.sleep(1)
+    def lift_down(distance):
+        this.left.run(-100,distance)
+        this.right.run(-100,distance)
+        sys.sleep(1)
 
-#deadzone =10
-#auton code 
-left_lift.run_until_time(100,0.1)
-right_lift.run_until_time(-100,0.1)
+lt          = liftTrain(left_lift,right_lift)
+
+#Main function
+lt.lift_down(40)
+
 dt.drive_until(100,50)#forward
 dt.turn_until(100,-85)#turn to riser
 dt.drive_until(100,490)#drives forward and push it forward
