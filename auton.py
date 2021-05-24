@@ -4,25 +4,25 @@ import vexiq
 
 #region config
 claw        = vexiq.Motor(1)
-left_drive  = vexiq.Motor(3)
-right_drive = vexiq.Motor(4, True) # Reverse Polarity
+left_drive  = vexiq.Motor(3, True) # Reverse Polarity
+right_drive = vexiq.Motor(4)
 left_lift   = vexiq.Motor(5)
-right_lift  = vexiq.Motor(6, True)
+right_lift  = vexiq.Motor(6, True) # Reverse Polarity
 touch_led   = vexiq.TouchLed(9)
 
 import drivetrain
-dt          = drivetrain.Drivetrain(left_drive, right_drive, 200, 225)
+dt          = drivetrain.Drivetrain(left_drive, right_drive, 200, 220)
 #endregion config
 
 class liftTrain:
     def __init__(self,l,r):
         self.left = l;
         self.right = r;
-    def lift_up(distance):
+    def lift_up(self, distance):
         self.left.run(100,distance)
         self.right.run(100,distance)
         sys.sleep(1)
-    def lift_down(distance):
+    def lift_down(self, distance):
         self.left.run(-100,distance)
         self.right.run(-100,distance)
         sys.sleep(1)
